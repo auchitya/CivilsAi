@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package workflow;
+
+service WorkflowExecutor {
+    rpc ExecuteWorkflow (ExecuteRequest) returns (ExecuteResponse);
+    rpc GetWorkflowStatus (StatusRequest) returns (StatusResponse);
+}
+
+message ExecuteRequest {
+    string workflow_name = 1;
+}
+
+message ExecuteResponse {
+    string message = 1;
+    string status = 2;
+}
+
+message StatusRequest {
+    string workflow_name = 1;
+}
+
+message StatusResponse {
+    string status = 1;
+}
