@@ -52,7 +52,7 @@ def update_task(db: Session, workflow_name: str, task_name: str, task_data: Task
         db.refresh(task)
 
         invalidate_workflow_cache(task.workflow_name)  # Invalidate cache on update
-        return {"message": "Task updated successfully", "task": task}
+        return task
 
     except SQLAlchemyError as e:
         db.rollback()
