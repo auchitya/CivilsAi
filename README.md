@@ -37,3 +37,5 @@ From your current path as CivilsAI run this command to send request from grpc cl
 The reason to use monolithic is the services are too small to be seperated. Creating a microservices for this would be a overkill. What we can do is create a seperate Machine to execute tasks. 
 
 I have used singleton connector for postgres and handled the exception using rollback so that the connector does not become useless.
+
+If the classes were sharable we could have used __slots__ to limit the user of creating any new object params.
